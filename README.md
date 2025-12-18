@@ -115,15 +115,15 @@ az vmss list-instances \
 
 **Proof - Scale-Out and Scale-in**
 
-Default
+Default:
 
 <img width="153" height="87" alt="Screenshot 2025-12-18 145542" src="https://github.com/user-attachments/assets/135f69d6-ac62-437d-9498-b4998cd61d3a" />
 
-Scale-In
+Scale-In:
 
 <img width="146" height="128" alt="Screenshot 2025-12-18 151729" src="https://github.com/user-attachments/assets/45fbbb31-272b-4f34-a09c-ce0a06400a37" />
 
-Scale-Out
+Scale-Out:
 
 <img width="134" height="98" alt="Screenshot 2025-12-18 151904" src="https://github.com/user-attachments/assets/9ad03cc5-f201-44bb-b217-679147b5d076" />
 
