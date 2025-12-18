@@ -75,8 +75,79 @@ az monitor autoscale create \
   --count 1
 ```
 
-Scale-Out Rule 
+Scale-Out Rule (CPU > 70%)
+```bash
+az monitor autoscale rule create \
+  --resource-group rg-vmss-autoscale \
+  --autoscale-name autoscale-vmss-cpu \
+  --condition "Percentage CPU > 70 avg 5m" \
+  --scale out 1
+```
 
+Scale-In Rule (CPU < 50%)
+```bash
+az monitor autoscale rule create \
+  --resource-group rg-vmss-autoscale \
+  --autoscale-name autoscale-vmss-cpu \
+  --condition "Percentage CPU < 50 avg 10m" \
+  --scale in 1
+```
+
+---
+
+## Step 4 - Observe VMSS Scaling Behavior 
+
+List VMMS Instances
+```bash
+az vmss list-instances \
+  --resource-group rg-vmss-autoscale \
+  --name vmss-linux-autoscale \
+  --query "[].instanceId" \
+  --output table
+```
+## Observed behavior
+- Initial state: 1 instance
+- Under load: scaled out to 2 and 3 instances
+- After load stopped: scaled back down to 2, then 1
+- Scale-In takes longer due to averaging windows and cooldown behavior.
+
+---
+
+## Section 5 - Cleanup
+```bash
+az group delete \
+  --name rg-vmss-autoscale \
+  --yes --no-wait
+```
+
+---
+
+
+## Learnings
+
+- VM Scale Sets provide horizontal scalability for virtual machines
+- Autoscale decisions are not instant – scale-in is intentionally slower than scale-out
+- Autoscaling is driven by:
+- Metric thresholds
+- Averaging windows
+- Cooldown periods
+- VMSS abstracts:
+- Load Balancer integration
+- Instance lifecycle management
+- CLI-only deployments expose real operational details often hidden in the Portal
+- VMSS is a foundation service used before higher-level services like App Services or containers
+
+---
+
+## Notes
+
+This project focuses on infrastructure-level scaling, not application deployment
+
+VMSS is commonly used as a building block for:
+
+- High-availability compute
+- Backend services
+- Autoscaled workloads
 
 
 
