@@ -1,8 +1,6 @@
 # azure-vmss-autoscale-cli
 Mini Azure Project – Linux VM Scale Set with CPU-based Autoscaling (Azure CLI)
 
-Mini Azure Project – Linux VM Scale Set with CPU-based Autoscaling (Azure CLI)
-
 This mini-lab demonstrates how to deploy and operate an Azure Virtual Machine Scale Set (VMSS) using Azure CLI only, including CPU-based autoscaling (scale-out & scale-in).
 The project is part of my AZ-104 learning path and focuses on compute scalability, availability, and automation, without using the Azure Portal for deployment.
 
