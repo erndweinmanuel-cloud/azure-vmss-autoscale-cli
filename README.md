@@ -56,6 +56,7 @@ az vmss create \
 ## Result:
 - VMSS created with 1 instance
 - Standard Load Balancer, VNet, Subnet and NSG are created automatically
+
 **Proof - VM Scale Set created**
   <img width="730" height="69" alt="Screenshot 2025-12-18 145450" src="https://github.com/user-attachments/assets/1b08d73e-f8bb-44d1-9c89-17daec4f10fa" />
 
